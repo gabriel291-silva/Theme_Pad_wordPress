@@ -1,0 +1,65 @@
+.container-header{
+    display: flex;
+    padding: 15px 18px;
+    background: #FAFAFA;
+    .container-header-content{
+        align-items: center;
+        max-width: 1180px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        .container-header-logo-container{
+            .container-header-logo-container{
+                max-height: 100px;
+            }
+        }
+        .container-header-menu{
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: end;
+            height: 100%;
+        
+        
+            .container-header-info{
+                    border: solid 3px black;
+                    padding: 4px 31px;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                .container-header-login-user{
+                    text-decoration: none;
+                    font-family: "Roboto", sans-serif;
+                    color: black;
+                    font-weight: 700;
+                    text-decoration: none;                
+                }
+            }
+            .container-header-departamentos{
+                .menu-header-desktop-container{
+                    .menu{
+                        list-style: none;
+                        padding: 0;
+                        display: flex;
+                        gap: 10px;
+                        justify-content: flex-end;
+                        .menu-item{
+                            a{
+                                text-decoration: none;
+                                font-family: $fontOne;
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
+}
+.teste{
+    color: red;
+    font-size: 48px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}  
