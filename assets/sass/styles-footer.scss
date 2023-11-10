@@ -1,0 +1,176 @@
+/*
+	Informacoes do Arquivo
+	============================================================
+
+	Arquivo.........: styles-footer.scss
+	Versao..........: 1.0
+	Data de Criacao.: 06/01/2020
+
+	============================================================
+*/
+
+// Include Sass Files
+
+// Mixins
+@import "./mixins/mixins-media-query.scss";
+@import "./mixins/mixins-components.scss";
+@import "./mixins/mixins-flex.scss";
+// Variables
+@import "./variables/fonts.scss";
+@import "./variables/colors.scss";
+@import "./variables/others.scss";
+
+@import "generics.scss";
+
+// Sass Code
+
+
+#footer{
+    background-color: $azul_escuro;
+
+    @include screen('mobile'){
+        margin-top: 60px;
+    }
+
+    .reserve-stand{
+        border-bottom: 1px solid #ccc;
+        padding: 20px 0 0;
+    }
+    
+    .button-beneficios-stand{
+        @include buttom_primary(100%, 18px);
+    }
+
+    .logo-social{
+        padding: 20px 0 7px;
+
+        .logo-rodape{
+            width: auto;
+            height: 30px;
+        }
+
+
+        .social-area{
+            height: 100%;
+
+            p{
+                margin-right: 20px;
+            }
+
+            .social-network{
+                @include _flex-display;
+                @include _flex-left-center;
+                @include _flex-wrap;
+                margin: 0;
+
+                li{
+                    list-style: none;
+                    padding: 5px;
+                    display: none;
+                    a{
+                        text-decoration: none;
+
+                        i{
+                            font-size: 20px;
+                            color: $font_color_base_light;
+                            font-weight: 100;
+
+                            &:hover{
+                                color: $font_color_theme_light;
+                            }
+                        }
+                    }
+                }
+
+                li.header{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .copyright-links{
+
+        @include _flex-display;
+        @include _flex-between-center;
+        @include _flex-wrap;
+        padding: 0px 0;
+        // border-top: solid thin $bg_color_light;
+
+        p{
+            font-size: 11px;
+            // @include _font-family("Montserrat", lighter);
+            @include font-padrao(normal);
+            color: $font_color_base_light;
+        }
+
+        #footer-links{
+
+            @include _flex-display;
+            @include _flex-right-center;
+            @include _flex-wrap;
+
+            li{
+                list-style: none;
+
+                a{
+                    // @include _font-family("Monteserrat", lighter);
+                    @include font-padrao(normal);
+                    font-size: 10px;
+                    color: #fff;
+                    //border-right: solid thin $bg_color_light;
+                    padding: 0 10px;  
+
+                    @include screen('mobile'){
+                        font-size: 12px;
+                        padding: 0 5px;
+                    }
+                    
+                    &:hover{
+                        // color: $font_color_theme_light;
+                        text-decoration: underline;
+                    }
+                    
+                }
+
+                &:last-child a{
+                    border-right: none;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    #backtop{
+        &:hover{
+            color: $font_color_base_dark !important;
+            background-color: $bg_color_light !important;
+        }
+    }
+}
+
+
+
+.footer-links-container{
+    ul.footer-links{
+        @include _flex-display;
+        @include _flex-left-center;
+        @include _flex-wrap;
+        li{
+            width: 30%;
+            list-style: none;
+            @include screen('mobile'){
+                width: 50%;
+                text-align: left;
+            }
+            a{
+                color: #fff;
+                font-size: 13px;
+                font-weight: normal;
+                @include screen('mobile'){
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}

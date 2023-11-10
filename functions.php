@@ -48,4 +48,10 @@ function register_my_menus() {
    }
    add_action( 'init', 'register_my_menus' );
 
+   
+   function wp_include_theme_scripts(){
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('scripts-slick', get_template_directory_uri() . '/assets/js/slick.min.js', '', '1.8.0', true);
+        } add_action( 'wp_enqueue_scripts', 'wp_include_theme_scripts' );
+
 ?>

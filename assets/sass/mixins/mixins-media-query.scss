@@ -1,0 +1,77 @@
+/*
+	Informacoes do Arquivo
+	============================================================
+
+	Arquivo.........: mixins-media-query.scss
+	Versao..........: 1.0
+	Data de Criacao.: 01/01/2018
+
+	============================================================
+*/
+
+
+@mixin for-phone-up {
+    @media (min-width: 0px) { @content; }
+}
+
+@mixin for-tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+}
+
+@mixin for-tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+}
+
+@mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+}
+
+@mixin for-tv-up {
+    @media (min-width: 1800px) { @content; }
+}
+
+
+
+
+/*
+* MEDIA QUERIES
+*/
+
+/**
+* Write Better Media Queries with Sass
+* Ref:  https://davidwalsh.name/write-media-queries-sass
+*/
+
+/*$mobile: "only screen and (max-width: 768px)";
+$tablet : "(min-width: 768px) and (max-width: 1023px)";
+$desktop : "(min-width: 1024px)";*/
+
+/**
+* 
+*/
+
+@mixin screen($size) {
+	$desktop: "(min-width: 1024px)";
+	$tablet: "(min-width: 768px) and (max-width: 1023px)";
+	$mobile: "(max-width: 767px)";
+	@if $size == desktop {
+	  @media only screen and #{$desktop} {
+		@content;
+	  }
+	}
+	@else if $size == tablet {
+	  @media only screen and #{$tablet} {
+		@content;
+	  }
+	}
+	@else if $size == mobile {
+	  @media only screen and #{$mobile} {
+		@content;
+	  }
+	}
+	@else {
+	  @media only screen and #{$size} {
+		@content;
+	  }
+	}
+  }

@@ -1,0 +1,14 @@
+#banner-topo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999999999;
+}
+
+#banner-topo .aviso {
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+}

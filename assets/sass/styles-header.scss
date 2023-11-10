@@ -1,0 +1,1023 @@
+/*
+	Informacoes do Arquivo
+	============================================================
+
+	Arquivo.........: styles-common.scss
+	Versao..........: 1.0
+	Data de Criacao.: 06/01/2020
+
+	============================================================
+*/
+
+
+// Include Sass Files
+
+// Mixins
+@import "./mixins/mixins-media-query.scss";
+@import "./mixins/mixins-components.scss";
+@import "./mixins/mixins-flex.scss";
+// Variables
+@import "./variables/fonts.scss";
+@import "./variables/colors.scss";
+@import "./variables/others.scss";
+
+@import "generics.scss";
+
+// SASS Code
+@include for-phone-up{
+
+    #header{
+
+		position: fixed;
+		background: #FFF;
+		z-index: 9999;
+
+		height: 75px;
+		-webkit-box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.1);
+		-moz-box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.1);
+		box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.1);
+
+		.container-header-mobile{
+
+			@include _flex-display; 
+			@include _flex-wrap;
+			@include _flex-between-center;
+			height: 100%;
+
+			@include screen('mobile'){
+				width: 100%;
+			}
+
+			.logo{
+				@include _flex-display;
+				@include _flex-left-center;
+				@include _flex-wrap;
+
+				.logo-principal{
+					width: auto;
+					height: 35px;
+					margin-right: 40px;
+				}
+
+				.logo-complementar{
+					width: auto;
+					height: 35px;
+				}
+				
+			}
+
+			.container-language-menu{
+				@include _flex-display;
+				@include _flex-wrap;
+				@include _flex-right-center;
+			}
+
+			.language{
+				.wpml-ls-legacy-list-horizontal .wpml-ls-flag{
+					width: 28px;
+					height: 32px;
+				}
+			}
+
+			.menu-mobile-button{
+				width: 28px;
+				margin-left: 10px;
+				position: relative;
+				top: 1px;
+				.bar-menu{
+					width: 100%;
+					height: 3px;
+					background-color: $cinza;
+					margin-bottom: 3px;
+					transition: all 0.5s;
+				}
+
+				&:active .bar-menu{
+					background-color: #CCC;
+				}
+
+				.top-bar {
+					transform: rotate(0);      
+				}
+				
+				.middle-bar {
+					opacity: 1;
+				}
+				
+				.bottom-bar {
+					transform: rotate(0);
+				}
+			}
+
+			.menu-mobile-button.collapse{
+				.top-bar {
+					transform: rotate(45deg);
+					transform-origin: 10% 120%;
+				}
+				
+				.middle-bar {
+					opacity: 0;
+				}
+				
+				.bottom-bar {
+					transform: rotate(-45deg);
+					transform-origin: 10% -20%;
+				}
+			}
+		}
+	}
+
+	#header-mobile-menu{
+		width: 100%;
+		height: calc(100% - 75px);
+		position: fixed;
+		z-index: 900;
+		display: none;
+		right: 0;
+		max-width: 360px;
+		// margin-top: 75px; 
+
+		.container-mobile-menu{
+			width: 100%;
+			max-height: 100%;
+			overflow: scroll;
+			position: absolute;
+			right: 0;
+
+			.login-area{
+				width: 100%;
+				padding: 10px 20px;
+				background-color: $bg_color_theme_light;
+
+				@include _flex-display;
+				@include _flex-left-center;
+
+				.profile-image{
+					display: inline-block;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					background-color: $bg_color_dark;
+				}
+
+				a{
+					color: $font_color_theme_dark;
+					margin-left: 10px;
+					// @include _font-family('Montserrat', 700);
+					@include font-padrao(bold);
+					font-size: 14px;
+				}
+			}
+
+			.menu-mobile-container{
+
+				#menu-mobile{
+					background-color: $bg_color_theme_dark;
+					margin-bottom: 0;
+					padding-top: 15px;
+
+					.menu-item{
+						width: 100%;
+						padding: 0 20px;
+						list-style: none;
+
+						a{
+							// @include _font-family('Montserrat', 700);
+							@include font-padrao(normal);
+							font-size: 14px;
+							display: inline-block;
+							color: $font_color_base_light;
+							border-bottom: solid 1px #FFF;
+							padding: 10px 0;
+							width: 100%;
+						}
+
+						&.menu-item-has-children {
+							.sub-menu{
+								li{
+									padding: 0 0;
+									a{
+										&::before{
+											// @include arrow( $laranja_escuro , 3px , right );
+											content: '- ';
+										}
+	
+									}
+								}
+							}
+						}
+
+						// &:first-child{
+						// 	width: 100%;
+						// 	background-color: $bg_color_theme_light;
+
+						// 	// REMOVER PARA EXIBIR O ÚLTIMO ITEM E LIBERAR A 
+						// 	// ÁREA DO EXPOSITOR
+						// 	display: none;
+
+						// 	a{
+						// 		color: $font_color_theme_dark;
+						// 		@include _font-family('Montserrat', 700);
+						// 		border-bottom: none;
+						// 		font-size: 14px;
+						// 		@include _flex-display;
+						// 		@include _flex-left-center;
+
+						// 		&::before{
+						// 			content: "";
+						// 			display: inline-block;
+						// 			width: 30px;
+						// 			height: 30px;
+						// 			border-radius: 50%;
+						// 			background-color: $bg_color_dark;
+						// 			margin-right: 10px;
+						// 		}
+						// 	}
+						// }
+					}
+
+				}
+			}
+
+			.stand-area{
+				padding: 20px;
+				@include _flex-display;
+				@include _flex-between-center;
+				@include _flex-wrap;
+				background-color: $bg_color_theme_dark;
+
+				p{
+					// @include _font-family("Montserrat", lighter);
+					@include font-padrao(normal);
+					font-size: 100%;
+					width: calc(100% - 165px);
+					color: $font_color_theme_light;
+				}
+
+				.button-reserve-stand{
+					@include buttom_primary(160px, 12px);
+				}
+
+			}
+
+			.social-area{
+				padding: 20px;
+				background-color: $bg_color_theme_dark;
+
+				.social-network{
+					@include _flex-display;
+					@include _flex-left-center;
+					@include _flex-wrap;
+
+					li{
+						list-style: none;
+						padding: 10px;
+						display: none;
+						a{
+							text-decoration: none;
+
+							i{
+								font-size: 20px;
+								color: $font_color_base_light;
+								font-weight: 100;
+							}
+						}
+					}
+
+					li.header{
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
+
+	#menu-item-234,#menu-item-235{
+		visibility: hidden;
+		display: none;
+	}
+}
+
+@include for-tablet-portrait-up{
+
+	#header{
+
+		height: 136px;
+		padding-left: 0;
+		padding-right: 0;
+
+		.top-bar{
+			height: auto;
+			background-color: #f19f38; 
+
+			//@include _flex-display;
+			//@include _flex-between-center;
+
+			p{
+				line-height: initial;
+				font-size: initial !important;
+				margin: 0;
+				padding: 0;
+			}
+
+			.data-evento{
+				*{
+					font-weight: 600;
+					color: #f19f38;
+					// font-size: 0.9rem !important;
+					line-height: 1.2;
+					@include font-padrao(bold);
+					text-transform: uppercase;
+				}
+			}
+
+			.social{
+				//@include _flex-display;
+				//@include _flex-right-center;
+				height: 100%;
+
+				p{
+					font-size: 13px;
+					@include font-padrao(normal);
+					margin-right: 20px;
+					color: #777;
+				}
+
+				.social-network{
+					@include _flex-display;
+					@include _flex-left-center;
+					@include _flex-wrap;
+					margin-bottom: 0;
+
+					li{
+						list-style: none;
+						padding: 5px;
+						display: none;
+						a{
+							text-decoration: none;
+
+							i{
+								font-size: 16px;
+								color: $font_color_base_dark;
+								font-weight: 100;
+
+								&:hover{
+									color: $font_color_theme_light;
+								}
+							}
+						}
+					}
+
+					li.header{
+						display: block;
+					}
+				}
+			}
+
+			.links-header{
+
+				//margin-left: 60px;
+
+				#menu-topbar{
+
+					@include _flex-display;
+					@include _flex-left-center;
+					@include _flex-wrap;
+
+					li{
+						list-style: none;
+						padding: 0 15px;
+						border-right: solid thin $bg_color_dark;
+						
+						a{
+							color: $font_color_base_dark;
+							font-size: 12px;
+							// @include _font-family('Montserrat', lighter);
+							@include font-padrao(normal);
+
+							&:hover{
+								color: $font_color_theme_light;
+							}
+						}
+
+						&:last-child{
+							// REMOVER PARA EXIBIR O ÚLTIMO ITEM E LIBERAR A 
+							// ÁREA DO EXPOSITOR
+							display: none;
+
+							a::before{
+								display: inline-block;
+								content: "";
+								width: 18px;
+								height: 18px;
+								border-radius: 50%;
+								background-color: gray;
+								margin-right: 7px;
+								position: relative;
+								top: 3px;
+							}
+						}
+					}
+				}
+			}
+
+			.language{
+
+				.wpml-ls-legacy-list-horizontal {
+					padding: 0px;
+				}
+
+
+				.wpml-ls-legacy-list-horizontal a {
+					padding: 5px 0px 5px 10px;
+				}
+
+				.wpml-ls-legacy-list-horizontal .wpml-ls-flag{
+					width: 26px;
+					height: 26px;
+				}
+			}
+		}
+		
+		.main-bar{
+			height: 90px;
+			@include _flex-display;
+			@include _flex-between-center;
+			@include _flex-wrap;
+
+			.logo{
+				img{
+					width: auto;
+					height: 40px;
+				}
+			}
+
+			.container-desktop-menu{
+
+				#menu-desktop{
+					@include _flex-display;
+					@include _flex-left-center;
+					@include _flex-wrap;
+					margin-top: 15px;
+
+					li{
+						list-style: none;
+						font-size: 12px;
+						padding: 5px;
+						//border-left: solid thin $preto;
+						overflow: hidden;
+						line-height: initial;
+						height: auto;
+
+						&.current-menu-item{
+							a{
+								color: $laranja_escuro;
+							}
+						}
+
+						&.menu-item-has-children {
+							.sub-menu{
+								display: block;
+								position: absolute;
+								background: transparent;
+								// height: 100% !important;
+								font-size: 15px;
+								padding-top: 40px;
+								width: 150px;
+								margin-left: -50px;
+								opacity: 0;
+								z-index: -1;
+								overflow: hidden;
+								@include anima;
+								
+								&::before{
+									content: '';
+									position: absolute;
+									margin-top: 0;
+									left: 50%;
+									transform: translate(-50%, 0);
+									@include anima;
+									@include arrow( $laranja_escuro , 10px , top );
+								}
+
+								li{
+									background: $laranja_escuro;
+									a{
+										color: #fff;
+										display: block;
+										line-height: 14px;
+										font-size: 14px;
+										height: auto;
+										font-weight: 100;
+										padding: 10px 6px;
+									}
+								}
+							}
+							&:hover{
+								.sub-menu{
+									opacity: 1;
+									z-index: 1;
+									height: auto;
+									padding-top: 36px;
+									&::before{
+										margin-top: -10px;
+									}
+								}
+							}
+						}
+
+						a{
+							color: $azul_escuro;
+							@include font-padrao(bold);
+							font-size: 16px;
+							text-transform: uppercase;
+
+							&:hover{
+								color: $font_color_theme_light;
+							}
+						}
+					}
+				}
+
+			}
+
+			.inscription-button{
+				@include _flex-display;
+				@include _flex-center-center;
+				@include _flex-wrap;
+
+				p{
+					font-size: 8px;
+					// @include _font-family("Monteserrat", lighter);
+					@include font-padrao(normal);
+					text-align: right;
+					padding-right: 5px;
+					margin-right: 5px;
+					//border-right: solid thin $preto;
+				}
+
+				.button-inscricao-evento{
+					@include buttom_primary(95px, 8px);
+				}
+			}
+		}
+	}
+}
+
+@include for-desktop-up{
+
+	#header{		
+		.main-bar{
+
+			@include _flex-left-center;
+			position: relative;
+
+			.logo{
+				img{
+					height: 60px;
+				}
+			}
+
+			.container-desktop-menu{
+
+				#menu-desktop{
+					li{
+						font-size: 16px;
+						padding: 2px 10px;
+					}
+				}
+
+			}
+
+			.inscription-button{
+				position: absolute;
+				right: 0;
+				p{
+					font-size: 16px;
+					padding-right: 0px;
+					margin-right: 0px;
+					font-weight: bold;
+				}
+
+				.button-inscricao-evento{
+					@include buttom_form_cta(130px, 14px);
+				}
+			}
+		}
+	}
+}
+
+
+.logo-rio-oil-gas{
+	&.active{
+		/***************************************************
+		* Generated by SVG Artista on 4/14/2020, 5:54:40 PM
+		* MIT license (https://opensource.org/licenses/MIT)
+		* W. https://svgartista.net
+		**************************************************/
+
+		@-webkit-keyframes animate-svg-fill-1 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(0, 0, 0);
+			}
+		}
+		
+		@keyframes animate-svg-fill-1 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(0, 0, 0);
+			}
+		}
+		
+		.logo-rog2020-1 {
+			-webkit-animation: animate-svg-fill-1 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+					animation: animate-svg-fill-1 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-2 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-2 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-2 {
+			-webkit-animation: animate-svg-fill-2 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
+					animation: animate-svg-fill-2 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-3 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-3 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-3 {
+			-webkit-animation: animate-svg-fill-3 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both;
+					animation: animate-svg-fill-3 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-4 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-4 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-4 {
+			-webkit-animation: animate-svg-fill-4 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s both;
+					animation: animate-svg-fill-4 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-5 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-5 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-5 {
+			-webkit-animation: animate-svg-fill-5 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s both;
+					animation: animate-svg-fill-5 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-6 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-6 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-6 {
+			-webkit-animation: animate-svg-fill-6 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s both;
+					animation: animate-svg-fill-6 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-7 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-7 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-7 {
+			-webkit-animation: animate-svg-fill-7 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s both;
+					animation: animate-svg-fill-7 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-8 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-8 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-8 {
+			-webkit-animation: animate-svg-fill-8 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s both;
+					animation: animate-svg-fill-8 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-9 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(95, 95, 96);
+			}
+		}
+		
+		@keyframes animate-svg-fill-9 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(95, 95, 96);
+			}
+		}
+		
+		.logo-rog2020-9 {
+			-webkit-animation: animate-svg-fill-9 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s both;
+					animation: animate-svg-fill-9 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-10 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(95, 95, 96);
+			}
+		}
+		
+		@keyframes animate-svg-fill-10 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(95, 95, 96);
+			}
+		}
+		
+		.logo-rog2020-10 {
+			-webkit-animation: animate-svg-fill-10 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s both;
+					animation: animate-svg-fill-10 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-11 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(95, 95, 96);
+			}
+		}
+		
+		@keyframes animate-svg-fill-11 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(95, 95, 96);
+			}
+		}
+		
+		.logo-rog2020-11 {
+			-webkit-animation: animate-svg-fill-11 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s both;
+					animation: animate-svg-fill-11 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-12 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		@keyframes animate-svg-fill-12 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(241, 159, 56);
+			}
+		}
+		
+		.logo-rog2020-12 {
+			-webkit-animation: animate-svg-fill-12 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s both;
+					animation: animate-svg-fill-12 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-13 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(240, 131, 55);
+			}
+		}
+		
+		@keyframes animate-svg-fill-13 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(240, 131, 55);
+			}
+		}
+		
+		.logo-rog2020-13 {
+			-webkit-animation: animate-svg-fill-13 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;
+					animation: animate-svg-fill-13 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;
+		}
+		
+		@-webkit-keyframes animate-svg-fill-14 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(236, 104, 53);
+			}
+		}
+		
+		@keyframes animate-svg-fill-14 {
+			0% {
+			fill: transparent;
+			}
+		
+			100% {
+			fill: rgb(236, 104, 53);
+			}
+		}
+		
+		.logo-rog2020-14 {
+			-webkit-animation: animate-svg-fill-14 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s both;
+					animation: animate-svg-fill-14 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s both;
+		}
+  
+	}
+}
+
+
+/*
+ Logotipo
+*/
+
+.logo-rio-oil-gas,
+.logo-ipb{
+	a{
+		display: block;
+	}
+	svg{
+		width: 100%;
+		height: auto;
+	}
+}
+
+.logo-rio-oil-gas{
+	width: 170px;
+	margin-right: 4rem!important;
+	@include screen('mobile'){
+		width: 98px;
+		margin-right: 2rem !important;
+	}
+}
+.logo-ipb{
+	width: 70px;
+	padding-bottom: .25rem!important;
+	&::before{
+		content: attr(data-text);
+		display: block;
+		font-size: 10px;
+	}
+	@include screen('mobile'){
+		width: 40px;
+		&::before{
+			font-size: 8px;
+		}
+	}
+}
+
+#footer{
+	.logo-rio-oil-gas{
+		width: 108px;
+	}
+	.logo-ipb{
+		width: 40px;
+		&::before{
+			color: #fff;
+		}
+	}
+}

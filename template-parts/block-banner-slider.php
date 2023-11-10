@@ -7,6 +7,7 @@ $args = array(
 
 $query = new WP_Query($args);
 ?>
+<div class="slider-home-banner">
 <?php
 // Verifique se existem posts
 if ($query->have_posts()) :
@@ -23,13 +24,13 @@ if ($query->have_posts()) :
         $image_url = wp_get_attachment_url($image_id);
 
         // Exibe a imagem
-        echo '<img src="' . $image_url . '" alt="Minha Imagem Personalizada">';
+        echo '<img class="banner-image-home" src="' . $image_url . '" alt="Minha Imagem Personalizada">';
     } else {
         echo 'Nenhuma imagem foi encontrada no campo personalizado.';
     }  
     
     ?>
-        <div>
+        
         
         </div>
         <?php
@@ -39,3 +40,14 @@ else :
     echo 'Não foram encontrados posts.';
 endif;
 ?>
+
+<script>
+    jQuery('.slider-home-banner').slick();
+</script>
+
+<style>
+    .banner-image-home {
+  width: 100%;
+  height: 684px;
+}
+</Style>

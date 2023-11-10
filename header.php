@@ -2,6 +2,16 @@
 <html <?php language_attributes(); ?>>
 	<head>
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
+
+	<
+
+	<style>
+		#menu-header-desktop{
+			font-weight: bold;
+			text-transform: uppercase;
+			gap: 30px;
+		}
+	</style>
 	</head>
   	<body <?php body_class(); ?>>
     	<!-- Cabeçalho da página -->
@@ -9,7 +19,7 @@
 
 		<div class="container-header-content">
 			<div class="container-header-logo-container">
-				<img class="container-header-logo-container" src="http://localhost/wordpressEstudo/wp-content/uploads/2023/10/Captura-de-tela-2023-10-19-150149.png" alt="">
+				<img class="container-header-logo-container" src="http://localhost/wordpress/wp-content/uploads/2023/11/2.png" alt="">
 			</div>
 			<div class="container-header-menu">
 				<div class="container-header-info">

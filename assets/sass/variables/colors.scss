@@ -1,0 +1,47 @@
+/*
+	Informacoes do Arquivo
+	============================================================
+
+	Arquivo.........: colors.scss
+	Versao..........: 1.0
+	Data de Criacao.: 01/08/2019
+
+	============================================================
+*/
+
+// Definição das cores padrão
+$preto: rgb(65, 64, 66);
+$cinza: rgb(157, 157, 156);
+$laranja: rgb(240, 157, 60);
+$laranja_claro: #f19b34;
+$laranja_escuro: rgb(242, 97, 46);
+$azul_escuro: #103d65; //rgb(39, 67, 140);
+$verde_cta: rgb(113, 198, 105);
+$branco: #FFF;
+
+$laranja: #e28833;
+$azul: #27438c;
+$amarelo: #fdb913;
+$cinza_escuro: #414042;
+$laranja_escuro: #eb5f2d;
+$cinza_claro: #dfdfdf;
+$branco: #ffffff;
+
+// Cores para background
+$bg_color_dark: $preto;
+$bg_color_light: $branco;
+$bg_color_theme_dark: $azul_escuro;
+$bg_color_theme_light: $laranja_claro;
+
+// Cores para as fontes
+$font_color_base_dark: $preto; 
+$font_color_base_light: $branco;
+$font_color_theme_dark: $azul_escuro;
+$font_color_theme_light: $laranja_claro;
+
+
+// Cores para os botões
+$buttom_color_theme_primary: $laranja_escuro;
+$buttom_color_theme_secondary: $verde_cta;
+$buttom_font_color_dark: $preto;
+$buttom_font_color_light: $branco;

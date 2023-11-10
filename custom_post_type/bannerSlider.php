@@ -27,7 +27,7 @@ function registrar_post_type_banner() {
         'has_archive' => true,
         'hierarchical' => false,
         'menu_position' => 20,
-        'supports' => array('title', 'editor', 'imagem', 'custom-fields'),
+        'supports' => array('title', 'imagem', 'custom-fields'),
     );
 
     register_post_type('BannersSlider', $args);

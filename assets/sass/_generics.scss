@@ -1,0 +1,183 @@
+
+// Variables
+@import "./variables/fonts.scss";
+@import "./variables/colors.scss";
+@import "./variables/others.scss";
+
+.text-left{
+  text-align: left;
+}
+
+@include screen('mobile'){
+  .text-xs-center{
+    text-align: center !important;
+  }
+  .text-xs-left{
+    text-align: center !important;
+  }
+}
+
+
+/*
+* Tamanhos de fontes para ser usada tanto no front com class
+* e também com @extend no sass
+*/
+
+@for $j from 0 to 150 {
+  .size-#{$j}{
+    font-size: $j + px;
+  }
+  .line-height-#{$j}{
+    line-height: $j + px;
+  }
+  .letter-spacing-#{$j}{
+    line-height: $j + px;
+  }
+
+  @include screen('mobile'){
+    .size-xs-#{$j} {
+      font-size: $j + px !important;
+    }
+    .line-height-xs-#{$j}{
+      line-height: $j + px !important;
+    }
+    .letter-spacing-xs-#{$j}{
+      line-height: $j + px !important;
+    }
+  }
+  
+}
+
+/*
+* Cores para ser usada tanto no front com class
+* e também com @extend no sass
+*/
+
+$colors-list:(
+  preto : $preto,
+  cinza : $cinza,
+  laranja : $laranja,
+  laranja_claro : $laranja_claro,
+  laranja_escuro : $laranja_escuro,
+  azul_escuro : $azul_escuro,
+  verde_cta : $verde_cta,
+  branco : $branco,
+);
+
+@each $key,$val in $colors-list{
+  .color--#{$key} {
+    color: #{$val} !important;
+  }
+  .bg--#{$key} {
+    background-color: #{$val} !important;
+  }
+}
+
+
+/*
+* Classes de texto para ser usada tanto no front com class
+* e também com @extend no sass
+*/
+
+.parent {
+	position: relative;
+	img{
+		z-index: 0;
+	}
+	&__child {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+	}
+	&--left {
+		width: 100%;
+		padding-left: 160px;
+	}
+	&--right {
+		width: 100%;
+		text-align: right;
+		padding-right: 160px;
+	}
+	&--center {
+		width: 100%;
+    text-align: center;
+    @include screen('mobile'){
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  
+  &.img-bg{
+    overflow: hidden;
+    img{
+      opacity: .4;
+    }
+    .img-bg-inner{}
+  }
+	
+}
+
+.font-bold{
+  font-weight: 600;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+.lowercase{
+  text-transform: lowercase;
+}
+.capitalize{
+  text-transform: capitalize;
+}
+.text-transform-initial{
+  text-transform: initial;
+}
+
+
+
+
+/*
+* Fontes
+*/
+
+
+@mixin font-padrao( $weight ){
+  @if $weight == normal{
+    font-family: 'TrebuchetMS' !important;
+  }@else if $weight == bolditalic{
+    font-family: 'Trebuchet-BoldItalic' !important;
+  }@else if $weight == italic{
+    font-family: 'TrebuchetMS-Italic' !important;
+  }@else if $weight == bold{
+    font-family: 'TrebuchetMS-Bold' !important;
+  }
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+  .TrebuchetMS{
+    font-family: 'TrebuchetMS' !important;
+    font-weight: normal;
+    font-style: normal;
+  }
+  .Trebuchet-BoldItalic{
+    font-family: 'Trebuchet-BoldItalic' !important;
+    font-weight: normal;
+    font-style: normal;
+  }
+  .TrebuchetMS-Italic{
+    font-family: 'TrebuchetMS-Italic' !important;
+    font-weight: normal;
+    font-style: normal;
+  }
+  .TrebuchetMS-Bold{
+    font-family: 'TrebuchetMS-Bold' !important;
+    font-weight: normal;
+    font-style: normal;
+  }
+  

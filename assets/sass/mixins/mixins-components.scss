@@ -1,0 +1,132 @@
+/*
+	Informacoes do Arquivo
+	============================================================
+
+	Arquivo.........: mixins-components.scss
+	Versao..........: 1.0
+	Data de Criacao.: 01/01/2018
+
+	============================================================
+*/
+
+@import '../variables/colors.scss';
+@import '../variables/fonts.scss';
+
+// Botões Padrão
+
+@mixin buttom_primary($width, $fontSize) {
+    display: inline-block;
+    width: $width;
+    font-size: $fontSize;
+    color: $buttom_font_color_light;
+    background-color: $buttom_color_theme_primary;
+    padding: 10px 30px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 100px;
+    @include _font-family('Karla', 800);
+
+    &:hover{
+        opacity: 0.8;
+    }
+
+    &:active{
+        opacity: 0.8;
+    }
+}
+
+
+@mixin buttom_secondary($width, $fontSize) {
+    display: inline-block;
+    width: $width;
+    font-size: $fontSize;
+    color: $azul_escuro;
+    background-color: #fff;
+    padding: 10px 30px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 100px;
+    border: 1px solid $azul_escuro !important;
+    @include _font-family('Karla', 800);
+
+    &:hover{
+        opacity: 0.8;
+    }
+
+    &:active{
+        opacity: 0.8;
+    }
+}
+
+@mixin buttom_form_cta($width, $fontSize) {
+    display: inline-block;
+    width: $width;
+    font-size: $fontSize;
+    color: $buttom_font_color_light;
+    background-color: $buttom_color_theme_secondary;
+    padding: 10px 20px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        opacity: 0.8; 
+    }
+
+    &:active{
+        opacity: 0.8; 
+    }
+}
+
+
+
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+
+/**
+* Animate all elements
+*/
+@mixin anima($time : 0.2s){
+    -webkit-transition: $time ease-in-out;
+    -moz-transition: $time ease-in-out;
+    -o-transition: $time ease-in-out;
+    -ms-transition: $time ease-in-out;
+    transition: $time ease-in-out;
+}
+
+
+
+/* 
+  SASS arrows mixin 
+  ref.: https://medium.com/@luisbajana/sass-arrows-mixin-6ff5650c656f
+*/
+@mixin arrow( $color , $size , $orientation ){
+    width: 0;
+    height: 0;
+    @if $orientation == top{
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+    }@else if $orientation == right{
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+    }@else if $orientation == down{
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-top: $size solid $color;
+    }@else{
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right: $size solid $color;
+    }
+  }
